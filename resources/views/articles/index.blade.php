@@ -6,8 +6,15 @@
         <div class="col s12">
             <h1 class="mb-4 text-center" style="background-color: #00ff5573"><strong>LIST OF ARTICLES</strong></h1>
             <hr class="mb-3">
+        <div class="d-flex justify-content-center mb-3">
             <a href="{{ route('articles.create') }}" class="btn btn-primary mb-3 btn-center">Create New Article</a>
-
+            <a href="{{ route('categories.index') }}" class="btn btn-secondary mb-3 mx-2">Create New Category</a>
+        </div>
+        @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+         @endif
             <table class="table table-striped table-bordered">
                 <thead class="table-dark">
                     <tr>
