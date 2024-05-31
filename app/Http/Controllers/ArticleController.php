@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Article;
@@ -7,27 +8,18 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $articles = Article::paginate(5);
         return view('articles.index', compact('articles'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $categories = Category::all();
-        return view('articles.create',compact('categories'));
+        return view('articles.create', compact('categories'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -35,35 +27,27 @@ class ArticleController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'category_id' => 'required|exists:categories,id',
             'content' => 'required|string',
+            'price' => 'required|numeric',
         ]);
 
         $path = $request->file('image')->store('images', 'public');
         $validated['image'] = $path;
 
         Article::create($validated);
-        return redirect()->route('articles.index');
+        return redirect()->route('articles.index')->with('success', 'Article created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Article $article)
     {
         return view('articles.show', compact('article'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Article $article)
     {
         $categories = Category::all();
-        return view('articles.edit', compact('article','categories'));
+        return view('articles.edit', compact('article', 'categories'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Article $article)
     {
         $validated = $request->validate([
@@ -71,6 +55,7 @@ class ArticleController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'category_id' => 'required|exists:categories,id',
             'content' => 'required|string',
+            'price' => 'required|numeric',
         ]);
 
         if ($request->hasFile('image')) {
@@ -79,16 +64,12 @@ class ArticleController extends Controller
         }
 
         $article->update($validated);
-        return redirect()->route('articles.index');
+        return redirect()->route('articles.index')->with('success', 'Article updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Article $article)
     {
         $article->delete();
-        return redirect()->route('articles.index')->with('success', 'Article deleted successfully');
+        return redirect()->route('articles.index')->with('success', 'Article deleted successfully.');
     }
-
 }

@@ -27,6 +27,10 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" name="price" id="price" class="form-control" required>
+                </div>
+                <div class="form-group">
                     <label for="content">Description</label>
                     <textarea name="content" id="content" class="form-control" rows="4" required></textarea>
                 </div>

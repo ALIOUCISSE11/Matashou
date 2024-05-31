@@ -10,13 +10,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('commandes', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('image')->nullable();
-            $table->foreignId('category_id')->constrained()->onDelete('cascade');
-            $table->decimal('price', 8, 2);
-            $table->text('content');
+            $table->foreignId('client_id')->constrained()->onDelete('cascade');
+            $table->decimal('prix_total', 8, 2);
+            $table->string('etat')->default('en attente'); // Par défaut à "en attente"
+            $table->string('adresse_livraison');
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('commandes');
     }
 };

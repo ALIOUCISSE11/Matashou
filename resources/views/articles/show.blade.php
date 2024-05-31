@@ -14,6 +14,9 @@
                 <strong>Category:</strong> {{ $article->category->name }}
             </div>
             <div class="mb-3">
+                <strong>Price:</strong> ${{ $article->price }}
+            </div>
+            <div class="mb-3">
                 <strong>Description:</strong>
                 <p>{{ $article->content }}</p>
             </div>

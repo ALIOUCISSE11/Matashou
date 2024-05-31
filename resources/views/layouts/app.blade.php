@@ -27,11 +27,59 @@
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
+                    
                 </header>
             @endif
 
             <!-- Page Content -->
-            <main>
+            @stack('scripts')
+            <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar">
+                <!-- Sidebar content -->
+                <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar">
+            <div class="position-sticky">
+                <ul class="nav flex-column text-white">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ route('dashboard') }}">
+                            Admin
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('articles.index') }}">
+                            Articles
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('categories.index') }}">
+                            Categories
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ route('clients.index') }}">
+                            Clients
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ route('commandes.index') }}">
+                            Commandes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ route('dashboard') }}">
+                            Livreurs
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+            </nav>
+            <!-- End Sidebar -->
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 @yield('content')
 
                 

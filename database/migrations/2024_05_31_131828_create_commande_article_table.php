@@ -8,15 +8,13 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('commande_article', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('image')->nullable();
-            $table->foreignId('category_id')->constrained()->onDelete('cascade');
-            $table->decimal('price', 8, 2);
-            $table->text('content');
+            $table->foreignId('commande_id')->constrained()->onDelete('cascade');
+            $table->foreignId('article_id')->constrained()->onDelete('cascade');
+            $table->integer('quantite');
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('commande_article');
     }
 };

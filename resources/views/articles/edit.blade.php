@@ -28,15 +28,21 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="content">Description</label>
-                    <textarea name="content" id="content" class="form-control" rows="4" required>{{ $article->content }}</textarea>
+                    <label for="price">Price</label>
+                    <input type="number" name="price" id="price" class="form-control" value="{{ $article->price }}" required>
                 </div>
-                <div class="d-flex justify-content-between">
-                    <button type="submit" class="btn btn-success">Update</button>
-                    <a href="{{ route('articles.index') }}" class="btn btn-secondary">Cancel</a>
-                </div>
-            </form>
-        </div>
-    </div>
+                <div class="form-group">
+    <label for="content">Description</label>
+    <textarea name="content" id="content" class="form-control" rows="4" required>{{ $article->content }}</textarea>
+</div>
+<div class="d-flex justify-content-between">
+    <button type="submit" class="btn btn-success">Update</button>
+    <a href="{{ route('articles.index') }}" class="btn btn-secondary">Cancel</a>
+</div>
+</form>
+</div>
+</div>
 </div>
 @endsection
+   
+            
