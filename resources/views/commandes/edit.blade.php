@@ -4,7 +4,7 @@
 <div class="container mt-5">
     <div class="card">
         <div class="card-header">
-            <h1 class="text-center mb-0">Edit Commande</h1>
+            <h1 class="text-center mb-0">Modifier une Commande</h1>
         </div>
         <div class="card-body">
             <form action="{{ route('commandes.update', $commande->id) }}" method="POST">
@@ -14,7 +14,7 @@
                     <label for="client_id">Client</label>
                     <select name="client_id" id="client_id" class="form-control" required>
                         @foreach($clients as $client)
-                            <option value="{{ $client->id }}" {{ $client->id == $commande->client_id ? 'selected' : '' }}>{{ $client->name }}</option>
+                            <option value="{{ $client->id }}" {{ $client->id == $commande->client_id ? 'selected' : '' }}>{{ $client->nom }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -24,8 +24,8 @@
                 </div>
                 <!-- Ajoutez ici les champs pour les articles et la quantité -->
                 <div class="d-flex justify-content-between">
-                    <button type="submit" class="btn btn-success">Update</button>
-                    <a href="{{ route('commandes.index') }}" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-success">Modifier</button>
+                    <a href="{{ route('commandes.index') }}" class="btn btn-secondary">Retour</a>
                 </div>
             </form>
         </div>

@@ -4,7 +4,7 @@
 <div class="container mt-5">
     <div class="card">
         <div class="card-header">
-            <h1 class="text-center mb-0">Create Commande</h1>
+            <h1 class="text-center mb-0">Créer une Commande</h1>
         </div>
         <div class="card-body">
             <form action="{{ route('commandes.store') }}" method="POST">
@@ -12,7 +12,7 @@
                 <div class="form-group">
                     <label for="client_id">Client</label>
                     <select name="client_id" id="client_id" class="form-control" required>
-                        <option value="">Select Client</option>
+                        <option value="">Selectionner un  Client</option>
                         @foreach($clients as $client)
                             <option value="{{ $client->id }}">{{ $client->nom }}</option> <!-- ici, j'ai changé $client->name en $client->nom -->
                         @endforeach
@@ -27,7 +27,7 @@
                         <div class="form-group">
                             <label for="article_1">Article</label>
                             <select name="articles[1][article_id]" id="article_1" class="form-control" required>
-                                <option value="">Select Article</option>
+                                <option value="">Selectionner un Article</option>
                                 @foreach($articles as $article)
                                     <option value="{{ $article->id }}">{{ $article->title }}</option>
                                 @endforeach
@@ -40,11 +40,11 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <button type="button" class="btn btn-primary" id="add-article">Add Article</button>
+                    <button type="button" class="btn btn-primary" id="add-article">Ajouter une Commande</button>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <button type="submit" class="btn btn-success">Submit</button>
-                    <a href="{{ route('commandes.index') }}" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-success">Créer</button>
+                    <a href="{{ route('commandes.index') }}" class="btn btn-secondary">Retour</a>
                 </div>
             </form>
         </div>

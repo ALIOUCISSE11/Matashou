@@ -7,16 +7,16 @@
             <h1 class="text-center mb-0">Clients</h1>
         </div>
         <div class="card-body">
-            <a href="{{ route('clients.create') }}" class="btn btn-primary mb-3">Add Client</a>
+            <a href="{{ route('clients.create') }}" class="btn btn-primary mb-3">Ajouter un Client</a>
             @if (session('success'))
                 <div class="alert alert-success">{{ session('success') }}</div>
             @endif
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Phone</th>
-                        <th>Address</th>
+                        <th>Nom</th>
+                        <th>Numéro de Téléphone</th>
+                        <th>Adresse</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -27,12 +27,12 @@
                             <td>{{ $client->phone }}</td>
                             <td>{{ $client->adresse }}</td>
                             <td>
-                                <a href="{{ route('clients.show', $client->id) }}" class="btn btn-info btn-sm">View</a>
-                                <a href="{{ route('clients.edit', $client->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="{{ route('clients.show', $client->id) }}" class="btn btn-info btn-sm">Détails</a>
+                                <a href="{{ route('clients.edit', $client->id) }}" class="btn btn-warning btn-sm">Modifier</a>
                                 <form action="{{ route('clients.destroy', $client->id) }}" method="POST" style="display:inline-block;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
+                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Supprimer</button>
                                 </form>
                             </td>
                         </tr>

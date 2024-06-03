@@ -4,7 +4,7 @@
 <div class="container mt-5">
     <h1 class="text-center mb-4">Liste des Commandes</h1>
     <div class="mb-3">
-        <a href="{{ route('commandes.create') }}" class="btn btn-primary">Add Command</a>
+        <a href="{{ route('commandes.create') }}" class="btn btn-primary">Ajouter une Commande</a>
     </div>
     @if(session('success'))
         <div class="alert alert-success">
@@ -42,17 +42,17 @@
                             <select name="etat" class="form-control" onchange="this.form.submit()">
                                 <option value="en attente" {{ $commande->etat == 'en attente' ? 'selected' : '' }}>En attente</option>
                                 <option value="en cours" {{ $commande->etat == 'en cours' ? 'selected' : '' }}>En cours</option>
-                                <option value="livré" {{ $commande->etat == 'livré' ? 'selected' : '' }}>Livré</option>
+                                <option value="livré" {{ $commande->etat == 'livré' ? 'selected' : '' }}>Livrée</option>
                             </select>
                         </form>
                     </td>
                     <td>
-                        <a href="{{ route('commandes.show', $commande->id) }}" class="btn btn-info">View</a>
-                        <a href="{{ route('commandes.edit', $commande->id) }}" class="btn btn-warning">Edit</a>
+                        <a href="{{ route('commandes.show', $commande->id) }}" class="btn btn-info">Détails</a>
+                        <a href="{{ route('commandes.edit', $commande->id) }}" class="btn btn-warning">Modifier</a>
                         <form action="{{ route('commandes.destroy', $commande->id) }}" method="POST" style="display:inline-block;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger">Supprimer</button>
                         </form>
                     </td>
                 </tr>

@@ -43,7 +43,7 @@
                 <ul class="nav flex-column text-white">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ route('dashboard') }}">
-                            Admin
+                            <strong><i>Tableau de bord</i></strong>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -53,7 +53,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('categories.index') }}">
-                            Categories
+                            Catégories
                         </a>
                     </li>
 
