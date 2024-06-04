@@ -5,6 +5,9 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CommandeController;
+use App\Http\Controllers\LivreurController;
+use App\Http\Controllers\DepenseController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +29,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('categories', CategoryController::class);
     Route::resource('clients', ClientController::class);
     Route::resource('commandes', CommandeController::class);
+    Route::resource('livreurs', LivreurController::class);
+    // Routes for Depenses
+    Route::resource('depenses', DepenseController::class);
 
     
     // Ajout de la route pour mettre à jour l'état de la commande
