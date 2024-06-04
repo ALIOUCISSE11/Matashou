@@ -5,6 +5,10 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CommandeController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,12 +29,20 @@ Route::middleware('auth')->group(function () {
     Route::resource('articles', ArticleController::class);
     Route::resource('categories', CategoryController::class);
     Route::resource('clients', ClientController::class);
-    Route::resource('commandes', CommandeController::class);
-
-    
-    // Ajout de la route pour mettre à jour l'état de la commande
-    Route::patch('/commandes/{commande}/updateStatus', [CommandeController::class, 'updateStatus'])->name('commandes.updateStatus');
+    Route::resource('commandes', CommandeController::class); 
+     // Ajout de la route pour mettre à jour l'état de la commande
+     Route::patch('/commandes/{commande}/updateStatus', [CommandeController::class, 'updateStatus'])->name('commandes.updateStatus');
+    Route::resource('roles', RoleController::class);
+    Route::resource('permissions', PermissionController::class);
+    Route::resource('users', UserController::class);
+   
 });
+
+//Route::middleware(['auth', 'role:admin'])->group(function () {
+    //Route::resource('roles', RoleController::class);
+    //Route::resource('permissions', PermissionController::class);
+    //Route::resource('users', UserController::class);
+//});
 
 Route::get('/dashboard', function () {
     return redirect()->route('articles.index');

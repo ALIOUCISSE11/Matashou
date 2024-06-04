@@ -20,7 +20,7 @@
                 <div class="form-group">
                     <label for="category">Catégorie</label>
                     <select name="category_id" id="category" class="form-control" required>
-                        <option value="">Selectionner une Catégorie</option>
+                        <option value="">Sélectionner une Catégorie</option>
                         @foreach($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
@@ -35,7 +35,7 @@
                     <textarea name="content" id="content" class="form-control" rows="4" required></textarea>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <button type="submit" class="btn btn-success">Creer</button>
+                    <button type="submit" class="btn btn-success">Créer</button>
                     <a href="{{ route('articles.index') }}" class="btn btn-secondary">Retour</a>
                 </div>
             </form>

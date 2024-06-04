@@ -19,7 +19,7 @@
                     <input type="text" name="phone" id="phone" class="form-control" value="{{ $client->phone }}" required>
                 </div>
                 <div class="form-group">
-                    <label for="adresse">Addresse:</label>
+                    <label for="adresse">Adresse:</label>
                     <input type="text" name="adresse" id="adresse" class="form-control" value="{{ $client->adresse }}" required>
                 </div>
                 <button type="submit" class="btn btn-success mt-3">Modifier</button>

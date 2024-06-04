@@ -1,12 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
-    let deleteButtons = document.querySelectorAll('button[data-id]');
-    deleteButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            let articleId = this.getAttribute('data-id');
-            if (confirm('Are you sure you want to delete this article!!! ?')) {
-                document.getElementById('deleteForm' + articleId).submit();
+    let deleteForms = document.querySelectorAll('form[id^="deleteForm"]');
+    deleteForms.forEach(form => {
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Empêche la soumission par défaut du formulaire
+
+            if (confirm('Êtes-vous sûr de vouloir supprimer cet article ?')) {
+                // Soumet le formulaire si la confirmation est acceptée
+                this.submit();
             }
         });
     });
 });
-

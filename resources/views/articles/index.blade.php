@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <h1 class="mb-4 text-center" style="background-color: #00ff5573"><strong>LISTE DES Articles</strong></h1>
+            <h1 class="mb-4 text-center" style="background-color: #00ff5573"><strong>LISTE DES ARTICLES</strong></h1>
             <div class="d-flex justify-content-center mb-3">
                 <a href="{{ route('articles.create') }}" class="btn btn-primary mb-3 btn-center">Créer un nouvel Article</a>
                 <a href="{{ route('categories.index') }}" class="btn btn-secondary mb-3 mx-2">Créer une nouvelle Catégorie</a>
@@ -34,13 +34,19 @@
                             <td>{{ $article->price }}</td>
                             <td>{{ $article->content }}</td>
                             <td>
+                            @if(auth()->user()->can('view articles'))
                                 <a href="{{ route('articles.show', $article->id) }}" class="btn btn-info">Détails</a>
+                            @endif
+                            @if(auth()->user()->cannot('edit articles'))
                                 <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-warning">Modifier</a>
+                            @endif
+                            @if(auth()->user()->cannot('delete articles'))
                                 <form action="{{ route('articles.destroy', $article->id) }}" method="POST" style="display:inline-block;" id="deleteForm{{$article->id}}">
                                     @csrf
                                     @method('DELETE')
                                     <button type="button" class="btn btn-danger delete-article" data-id="{{$article->id}}">Supprimer</button>
                                 </form>
+                            @endif
                             </td>
                         </tr>
                     @endforeach
@@ -53,3 +59,18 @@
     </div>
 </div>
 @endsection
+@push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let deleteButtons = document.querySelectorAll('.delete-article');
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                let articleId = this.getAttribute('data-id');
+                if (confirm('Êtes-vous sûr de vouloir supprimer cet article?')) {
+                    document.getElementById('deleteForm' + articleId).submit();
+                }
+            });
+        });
+    });
+</script>
+@endpush
