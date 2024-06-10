@@ -1,12 +1,12 @@
 <?php
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClientController;
-use App\Http\Controllers\CommandeController;
-use App\Http\Controllers\LivreurController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\DepenseController;
+use App\Http\Controllers\LivreurController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommandeController;
 
 
 /*
@@ -23,6 +23,9 @@ use App\Http\Controllers\DepenseController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/', 'App\Http\Controllers\Controller@index')->name('home');
+
 
 Route::middleware('auth')->group(function () {
     Route::resource('articles', ArticleController::class);
@@ -47,5 +50,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+
 
 require __DIR__.'/auth.php';

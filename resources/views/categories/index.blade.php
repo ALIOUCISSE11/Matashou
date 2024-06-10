@@ -27,7 +27,7 @@
                     @foreach($categories as $category)
                     <tr>
                         <td>{{ $category->name }}</td>
-                        <td><img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}" width="100"></td>
+                        <td><img src="{{ asset('images/' . $category->image) }}" alt="{{ $category->name }}" width="100"></td>
                         <td>
                             <a href="{{ route('categories.show', $category->id) }}" class="btn btn-info">View</a>
                             <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-warning">Edit</a>

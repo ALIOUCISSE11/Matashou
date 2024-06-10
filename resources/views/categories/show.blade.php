@@ -9,7 +9,7 @@
         <div class="card-body">
             <div class="form-group">
                 <label for="image">Image</label>
-                <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}" width="100">
+                <img src="{{ asset('images/' . $category->image) }}" alt="{{ $category->name }}" width="100">
             </div>
             <div class="d-flex justify-content-end">
                 <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-warning">Edit</a>

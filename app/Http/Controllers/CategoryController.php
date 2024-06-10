@@ -30,7 +30,7 @@ class CategoryController extends Controller
         ]);
 
         // Upload de l'image
-        $imagePath = $request->file('image')->store('categories', 'public');
+        $imagePath = $request->file('image')->store('images');
 
         // Création de la catégorie
         $category = new Category();
@@ -63,7 +63,7 @@ class CategoryController extends Controller
 
         // Si une nouvelle image est téléchargée, mettre à jour l'image
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('categories', 'public');
+            $imagePath = $request->file('image')->store('images', 'public');
             $category->image = $imagePath;
         }
 
