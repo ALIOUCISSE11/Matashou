@@ -17,7 +17,7 @@
                 <div class="form-group">
                     <label for="image">Image</label>
                     <input type="file" name="image" id="image" class="form-control">
-                    <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}" width="100">
+                    <img src="{{ asset('images/' . $category->image) }}" alt="{{ $category->name }}" width="100">
                 </div>
                 <div class="d-flex justify-content-between">
            

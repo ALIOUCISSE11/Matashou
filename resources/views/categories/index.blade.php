@@ -29,6 +29,7 @@
                 </thead>
                 <tbody>
                     @foreach($categories as $category)
+
                         <tr>
                             <td>{{ $category->name }}</td>
                             <td><img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}" width="100"></td>
@@ -47,6 +48,7 @@
                                 
                             </td>
                         </tr>
+
                     @endforeach
                 </tbody>
             </table>

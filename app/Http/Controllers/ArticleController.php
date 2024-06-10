@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
+
     public function index()
     {
         $articles = Article::paginate(5);
@@ -30,10 +31,21 @@ class ArticleController extends Controller
             'price' => 'required|numeric',
         ]);
 
-        $path = $request->file('image')->store('images', 'public');
-        $validated['image'] = $path;
+        // Traiter l'image
+        if ($request->hasFile('image')) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
+        }
 
-        Article::create($validated);
+        // Créer un nouvel article
+        $article = new Article();
+        $article->title = $request->title;
+        $article->image = 'images/' . $imageName; // Assurez-vous que le champ image correspond à la colonne dans votre base de données
+        $article->category_id = $request->category_id;
+        $article->price = $request->price;
+        $article->content = $request->content;
+        $article->save();
+
         return redirect()->route('articles.index')->with('success', 'Article created successfully.');
     }
 
@@ -59,7 +71,7 @@ class ArticleController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('images', 'public');
+            $path = $request->file('image')->store('images');
             $validated['image'] = $path;
         }
 
@@ -72,4 +84,5 @@ class ArticleController extends Controller
         $article->delete();
         return redirect()->route('articles.index')->with('success', 'Article deleted successfully.');
     }
+
 }

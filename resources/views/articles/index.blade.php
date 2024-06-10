@@ -33,24 +33,19 @@
                     @foreach($articles as $article)
                         <tr>
                             <td>{{ $article->title }}</td>
-                            <td><img src="{{ asset('storage/' . $article->image) }}" alt="{{ $article->title }}" width="100"></td>
+
+                            <td><img src="{{ asset('images/' . $article->image) }}" alt="{{ $article->title }}" width="100"></td>
                             <td>{{ $article->category->name }}</td>
                             <td>{{ $article->price }}</td>
                             <td>{{ $article->content }}</td>
                             <td>
-                            
-                                    <a href="{{ route('articles.show', $article->id) }}" class="btn btn-info">Détails</a>
-                                
-                           
-                                    <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-warning">Modifier</a>
-                                
-                              
+                                 <a href="{{ route('articles.show', $article->id) }}" class="btn btn-info">Détails</a>
+                                   <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-warning">Modifier</a>
                                     <form action="{{ route('articles.destroy', $article->id) }}" method="POST" style="display:inline-block;" id="deleteForm{{$article->id}}">
                                         @csrf
                                         @method('DELETE')
                                         <button type="button" class="btn btn-danger delete-article" data-id="{{$article->id}}">Supprimer</button>
                                     </form>
-                                
                             </td>
                         </tr>
                     @endforeach

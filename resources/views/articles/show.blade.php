@@ -8,13 +8,14 @@
         </div>
         <div class="card-body">
             <div class="mb-3">
-                <img src="{{ asset('storage/' . $article->image) }}" alt="{{ $article->title }}" class="img-fluid">
+                <img src="{{ asset('images/' . $article->image) }}" alt="{{ $article->title }}" class="img-fluid">
             </div>
             <div class="mb-3">
                 <strong>Catégorie:</strong> {{ $article->category->name }}
             </div>
             <div class="mb-3">
                 <strong>Prix:</strong> ${{ $article->price }}
+
             </div>
             <div class="mb-3">
                 <strong>Description:</strong>

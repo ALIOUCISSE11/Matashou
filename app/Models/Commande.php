@@ -41,4 +41,10 @@ class Commande extends Model
         $this->etat = $etat;
         $this->save();
     }
+
+    // Indique qu'une commande peut avoir plusieurs livreurs
+    public function livreurs()
+    {
+        return $this->belongsTo(Livreur::class);
+    }
 }
