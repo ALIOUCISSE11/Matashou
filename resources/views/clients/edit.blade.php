@@ -7,6 +7,7 @@
             <h1 class="text-center mb-0">Modifier un Client</h1>
         </div>
         <div class="card-body">
+           
             <form action="{{ route('clients.update', $client->id) }}" method="POST">
                 @csrf
                 @method('PUT')
@@ -24,6 +25,7 @@
                 </div>
                 <button type="submit" class="btn btn-success mt-3">Modifier</button>
             </form>
+          
         </div>
     </div>
 </div>

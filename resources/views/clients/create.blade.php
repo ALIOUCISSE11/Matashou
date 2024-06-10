@@ -7,6 +7,7 @@
             <h1 class="text-center mb-0">Ajouter un Client</h1>
         </div>
         <div class="card-body">
+         
             <form action="{{ route('clients.store') }}" method="POST">
                 @csrf
                 <div class="form-group">
@@ -23,6 +24,9 @@
                 </div>
                 <button type="submit" class="btn btn-success mt-3">Enregistrer</button>
             </form>
+            @else
+            <div class="alert alert-danger">Vous n'avez pas les autorisations nécessaires pour créer un client.</div>
+           
         </div>
     </div>
 </div>

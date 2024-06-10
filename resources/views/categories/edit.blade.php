@@ -20,7 +20,8 @@
                     <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}" width="100">
                 </div>
                 <div class="d-flex justify-content-between">
-                    <button type="submit" class="btn btn-success">Modifier</button>
+           
+                        <button type="submit" class="btn btn-success">Modifier</button>
                     <a href="{{ route('categories.index') }}" class="btn btn-secondary">Retour</a>
                 </div>
             </form>

@@ -4,7 +4,9 @@
 <div class="container mt-5">
     <h1 class="text-center mb-4">Liste des Commandes</h1>
     <div class="mb-3">
+     
         <a href="{{ route('commandes.create') }}" class="btn btn-primary">Ajouter une Commande</a>
+    
     </div>
     @if(session('success'))
         <div class="alert alert-success">
@@ -47,13 +49,18 @@
                         </form>
                     </td>
                     <td>
+                       
                         <a href="{{ route('commandes.show', $commande->id) }}" class="btn btn-info">Détails</a>
+                
                         <a href="{{ route('commandes.edit', $commande->id) }}" class="btn btn-warning">Modifier</a>
+                   
+                    
                         <form action="{{ route('commandes.destroy', $commande->id) }}" method="POST" style="display:inline-block;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Supprimer</button>
                         </form>
+                      
                     </td>
                 </tr>
             @endforeach

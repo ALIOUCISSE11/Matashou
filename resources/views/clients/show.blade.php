@@ -10,6 +10,9 @@
             <h5 class="card-title">Nom:    {{ $client->nom }}</h5>
             <p class="card-title">Numéro: {{ $client->phone }}</p>
             <p class="card-title">Addresse: {{ $client->adresse }}</p>
+           
+                <a href="{{ route('clients.edit', $client->id) }}" class="btn btn-warning">Modifier</a>
+        
             <a href="{{ route('clients.index') }}" class="btn btn-primary">Retour</a>
         </div>
     </div>

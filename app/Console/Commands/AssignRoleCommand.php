@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use App\Models\User;
 use App\Http\Controllers\UserController;
 
 class AssignRoleCommand extends Command

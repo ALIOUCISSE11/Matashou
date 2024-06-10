@@ -18,7 +18,9 @@
                     <input type="file" name="image" id="image" class="form-control" required>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <button type="submit" class="btn btn-success">Créer</button>
+                
+                        <button type="submit" class="btn btn-success">Créer</button>
+            
                     <a href="{{ route('categories.index') }}" class="btn btn-secondary">Retour</a>
                 </div>
             </form>

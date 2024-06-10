@@ -23,7 +23,10 @@
             <div class="mb-3">
                 <strong>Créer le:</strong> {{ $article->created_at->format('d M Y, H:i:s') }}
             </div>
-            <a href="{{ route('articles.index') }}" class="btn btn-primary">Retour</a>
+          
+                <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-primary">Modifier</a>
+          
+            <a href="{{ route('articles.index') }}" class="btn btn-secondary">Retour</a>
         </div>
     </div>
 </div>

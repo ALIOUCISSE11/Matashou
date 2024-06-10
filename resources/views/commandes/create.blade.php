@@ -12,9 +12,9 @@
                 <div class="form-group">
                     <label for="client_id">Client</label>
                     <select name="client_id" id="client_id" class="form-control" required>
-                        <option value="">Selectionner un  Client</option>
+                        <option value="">Sélectionner un Client</option>
                         @foreach($clients as $client)
-                            <option value="{{ $client->id }}">{{ $client->nom }}</option> <!-- ici, j'ai changé $client->name en $client->nom -->
+                            <option value="{{ $client->id }}">{{ $client->nom }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -27,7 +27,7 @@
                         <div class="form-group">
                             <label for="article_1">Article</label>
                             <select name="articles[1][article_id]" id="article_1" class="form-control" required>
-                                <option value="">Selectionner un Article</option>
+                                <option value="">Sélectionner un Article</option>
                                 @foreach($articles as $article)
                                     <option value="{{ $article->id }}">{{ $article->title }}</option>
                                 @endforeach
@@ -43,7 +43,9 @@
                     <button type="button" class="btn btn-primary" id="add-article">Ajouter une Commande</button>
                 </div>
                 <div class="d-flex justify-content-between">
+                
                     <button type="submit" class="btn btn-success">Créer</button>
+                    
                     <a href="{{ route('commandes.index') }}" class="btn btn-secondary">Retour</a>
                 </div>
             </form>
@@ -63,7 +65,7 @@
                     <div class="form-group">
                         <label for="article_${index}">Article</label>
                         <select name="articles[${index}][article_id]" id="article_${index}" class="form-control" required>
-                            <option value="">Select Article</option>
+                            <option value="">Sélectionner un Article</option>
                             @foreach($articles as $article)
                                 <option value="{{ $article->id }}">{{ $article->title }}</option>
                             @endforeach

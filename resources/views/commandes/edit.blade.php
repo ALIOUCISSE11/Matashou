@@ -42,7 +42,9 @@
                     @endforeach
                 </div>
                 <div class="d-flex justify-content-between">
+                  
                     <button type="submit" class="btn btn-success">Modifier</button>
+                    
                     <a href="{{ route('commandes.index') }}" class="btn btn-secondary">Retour</a>
                 </div>
             </form>

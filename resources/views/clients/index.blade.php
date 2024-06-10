@@ -7,7 +7,9 @@
             <h1 class="text-center mb-0">Clients</h1>
         </div>
         <div class="card-body">
+           
             <a href="{{ route('clients.create') }}" class="btn btn-primary mb-3">Ajouter un Client</a>
+        
             @if (session('success'))
                 <div class="alert alert-success">{{ session('success') }}</div>
             @endif
@@ -28,12 +30,15 @@
                             <td>{{ $client->adresse }}</td>
                             <td>
                                 <a href="{{ route('clients.show', $client->id) }}" class="btn btn-info btn-sm">Détails</a>
+                           
                                 <a href="{{ route('clients.edit', $client->id) }}" class="btn btn-warning btn-sm">Modifier</a>
+                       
                                 <form action="{{ route('clients.destroy', $client->id) }}" method="POST" style="display:inline-block;">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Supprimer</button>
                                 </form>
+                              
                             </td>
                         </tr>
                     @endforeach

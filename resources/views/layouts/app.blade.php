@@ -61,21 +61,7 @@
                                         Commandes
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="{{ route('users.index') }}">
-                                        Utilisateurs
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="{{ route('roles.index') }}">
-                                        Rôles
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="{{ route('permissions.index') }}">
-                                        Permissions
-                                    </a>
-                                </li>
+                                
                             </ul>
                         </div>
                     </nav>

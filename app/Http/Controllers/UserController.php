@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -21,8 +22,11 @@ class UserController extends Controller
             'roles' => 'required|array',
         ]);
 
+        // Récupérer les noms des rôles à partir des IDs fournis dans la requête
+        $roleNames = Role::whereIn('id', $request->roles)->pluck('name')->toArray();
+
         // Synchronisez les rôles de l'utilisateur avec ceux fournis dans la requête
-        $user->syncRoles($request->roles);
+        $user->syncRoles($roleNames);
 
         // Redirigez avec un message de succès
         return redirect()->route('users.index')->with('success', 'Les rôles de l\'utilisateur ont été mis à jour avec succès.');
@@ -30,14 +34,14 @@ class UserController extends Controller
 
     public function assignRoleToUser()
     {
-        $user = User::where('name', 'Aliou Cisse')->first(); // Récupérer l'utilisateur par son nom
+        // Récupérer l'utilisateur par la condition 'is_admin'
+        $user = User::where('is_admin', true)->first();
 
         if ($user) {
             $role = Role::where('name', 'admin')->first(); // Récupérer le rôle par son nom
             if ($role) {
-               // $user->assignRole($role); // Assigner le rôle à l'utilisateur
-                // Vous pouvez également utiliser la méthode syncRoles pour remplacer les rôles existants par le nouveau rôle
-                 $user->syncRoles([$role]); 
+                // Assigner le rôle à l'utilisateur
+                $user->syncRoles([$role->name]); 
                 return "Rôle attribué avec succès à l'utilisateur.";
             } else {
                 return "Le rôle spécifié n'existe pas.";

@@ -39,6 +39,15 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
+      
+        <!-- Is Admin -->
+        <div class="mt-4">
+            <label for="is_admin" class="block font-medium text-sm text-gray-700">Admin</label>
+            <input id="is_admin" type="checkbox" class="mt-1" name="is_admin" value="1" @if(old('is_admin')) checked @endif>
+            <x-input-error :messages="$errors->get('is_admin')" class="mt-2" />
+        </div>
+
+
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
                 {{ __('Déja inscrit?') }}
