@@ -7,6 +7,9 @@ use App\Http\Controllers\LivreurController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommandeController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -24,7 +27,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', 'App\Http\Controllers\Controller@index')->name('home');
 
 
 Route::middleware('auth')->group(function () {
@@ -34,12 +36,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('commandes', CommandeController::class);
     Route::resource('livreurs', LivreurController::class);
     // Routes for Depenses
-    Route::resource('depenses', DepenseController::class);
-
-    
+    Route::resource('depenses', DepenseController::class); 
     // Ajout de la route pour mettre à jour l'état de la commande
     Route::patch('/commandes/{commande}/updateStatus', [CommandeController::class, 'updateStatus'])->name('commandes.updateStatus');
-});
+    
 
 Route::get('/dashboard', function () {
     return redirect()->route('articles.index');
@@ -50,7 +50,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
 
 
 

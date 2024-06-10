@@ -4,7 +4,7 @@
 <div class="container mt-5">
     <div class="card">
         <div class="card-header">
-            <h1 class="text-center mb-0">Commande Details</h1>
+            <h1 class="text-center mb-0">Détails d'une Commande</h1>
         </div>
         <div class="card-body">
             <div class="mb-3">
@@ -28,13 +28,18 @@
                 <strong>Etat:</strong> {{ $commande->etat }}
             </div>
             <div class="d-flex justify-content-between">
-                <a href="{{ route('commandes.index') }}" class="btn btn-primary">Back to Commandes</a>
-                <a href="{{ route('commandes.edit', $commande->id) }}" class="btn btn-warning">Edit</a>
+             
+                <a href="{{ route('commandes.index') }}" class="btn btn-primary">Retour</a>
+              
+                <a href="{{ route('commandes.edit', $commande->id) }}" class="btn btn-warning">Modifier</a>
+              
+             
                 <form action="{{ route('commandes.destroy', $commande->id) }}" method="POST" style="display:inline-block;">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-danger">Supprimer</button>
                 </form>
+               
             </div>
         </div>
     </div>

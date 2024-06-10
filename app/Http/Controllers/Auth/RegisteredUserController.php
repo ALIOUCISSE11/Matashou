@@ -36,11 +36,25 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        $isAdmin = $request->is_admin ?? false;
+
+        // Si c'est le premier utilisateur ou s'il est spécifié comme administrateur,
+        // attribuer le rôle d'administrateur
+        if (User::count() === 0 || $isAdmin) {
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'is_admin' => true,
+            ]);
+        } else {
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'is_admin' => $request->is_admin ?? false,
+            ]);
+        }
 
         event(new Registered($user));
 

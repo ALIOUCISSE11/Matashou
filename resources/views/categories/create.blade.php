@@ -4,13 +4,13 @@
 <div class="container mt-5">
     <div class="card">
         <div class="card-header">
-            <h1 class="text-center mb-0">Create Category</h1>
+            <h1 class="text-center mb-0">Créer une Catégorie</h1>
         </div>
         <div class="card-body">
             <form action="{{ route('categories.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                    <label for="name">Name</label>
+                    <label for="name">Nom</label>
                     <input type="text" name="name" id="name" class="form-control" required>
                 </div>
                 <div class="form-group">
@@ -18,8 +18,10 @@
                     <input type="file" name="image" id="image" class="form-control" required>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <button type="submit" class="btn btn-success">Submit</button>
-                    <a href="{{ route('categories.index') }}" class="btn btn-secondary">Cancel</a>
+                
+                        <button type="submit" class="btn btn-success">Créer</button>
+            
+                    <a href="{{ route('categories.index') }}" class="btn btn-secondary">Retour</a>
                 </div>
             </form>
         </div>

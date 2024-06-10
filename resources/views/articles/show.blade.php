@@ -11,19 +11,23 @@
                 <img src="{{ asset('images/' . $article->image) }}" alt="{{ $article->title }}" class="img-fluid">
             </div>
             <div class="mb-3">
-                <strong>Category:</strong> {{ $article->category->name }}
+                <strong>Catégorie:</strong> {{ $article->category->name }}
             </div>
             <div class="mb-3">
-                <strong>Price:</strong> {{ $article->price }} CFA 
+                <strong>Prix:</strong> ${{ $article->price }}
+
             </div>
             <div class="mb-3">
                 <strong>Description:</strong>
                 <p>{{ $article->content }}</p>
             </div>
             <div class="mb-3">
-                <strong>Created At:</strong> {{ $article->created_at->format('d M Y, H:i:s') }}
+                <strong>Créer le:</strong> {{ $article->created_at->format('d M Y, H:i:s') }}
             </div>
-            <a href="{{ route('articles.index') }}" class="btn btn-primary">Back to Articles</a>
+          
+                <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-primary">Modifier</a>
+          
+            <a href="{{ route('articles.index') }}" class="btn btn-secondary">Retour</a>
         </div>
     </div>
 </div>
