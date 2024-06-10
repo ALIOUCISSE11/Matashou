@@ -39,7 +39,7 @@
                             <td>{{ $article->content }}</td>
                             <td>
                             
-                                    <a href="{{ route('articles.show', $article->id) }}" class="btn btn-info">Détails</a>
+                                   <a href="{{ route('articles.show', $article->id) }}" class="btn btn-info">Détails</a>
                                 
                            
                                     <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-warning">Modifier</a>
