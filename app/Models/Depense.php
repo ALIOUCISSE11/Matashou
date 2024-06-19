@@ -9,7 +9,7 @@ class Depense extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nom_produit', 'quantité', 'prix_unitaire'];
+    protected $fillable = ['nom_produit', 'quantité', 'prix_unitaire', 'prix_total'];
 
     protected static function boot()
     {
@@ -18,5 +18,10 @@ class Depense extends Model
         static::saving(function ($model) {
             $model->prix_total = $model->quantité * $model->prix_unitaire;
         });
+    }
+
+    public static function depensesParDate($date)
+    {
+        return static::whereDate('created_at', $date)->get();
     }
 }

@@ -24,6 +24,9 @@
                     <div class="mb-3">
                         <strong>Prix Total:</strong> {{ $depense->prix_total }}
                     </div>
+                    <div class="mb-3">
+                        <strong>Date et Heure:</strong> {{ $depense->created_at->format('d/m/Y H:i') }}
+                    </div>
                     <div class="d-flex justify-content-between">
                         <a href="{{ route('depenses.edit', $depense->id) }}" class="btn btn-warning">Modifier</a>
                         <form action="{{ route('depenses.destroy', $depense->id) }}" method="POST" style="display:inline-block;">
