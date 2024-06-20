@@ -16,7 +16,7 @@ class Controller extends BaseController
     {
         $articles = Article::all();
         $categories = Category::all();
-    return view('welcome', compact('categories'));
+        return view('welcome', compact('categories'));
         return view('welcome', compact('articles'));
     }
 }

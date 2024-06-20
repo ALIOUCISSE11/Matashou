@@ -53,4 +53,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/depenses/search', 'DepenseController@search')->name('depenses.search');
 });
 
+Route::middleware('auth')->group(function () {
+    Route::resource('commandes', CommandeController::class);
+    
+    Route::post('commandes/search', [CommandeController::class, 'search'])->name('commandes.recherche');
+    Route::post('commandes/searchByMonth', [CommandeController::class, 'searchByMonth'])->name('commandes.rechercheMois');
+    Route::post('commandes/annuler-recherche', [CommandeController::class, 'annulerRecherche'])->name('commandes.annulerRecherche');
+    Route::patch('commandes/{commande}/updateStatus', [CommandeController::class, 'updateStatus'])->name('commandes.updateStatus');
+});
+
 require __DIR__.'/auth.php';
+

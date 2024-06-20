@@ -7,69 +7,80 @@
     <!-- Ajoutez les liens vers Bootstrap CSS et jQuery -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
+
 <body>
-
 <header>
-    <img src="{{ asset('images/mon-logo.png') }}" alt="logo" id="logo-img">
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" style="color: #549637;" href="#"><b>Accueil</b></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="color: #549637;" href="#plateaux"><b>Boutique</b></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="color: #549637;" href="#blog"><b>Blog</b></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="color: #549637;" href="#a-propos"><b>A propos</b></a>
-                </li>
-                <li class="nav-item" id="exeption">
-                    <a class="nav-link" style="color: #549637;" href="#contact"><b>Contact</b></a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</header>
-
-<div>
-    <article>
-        <div>
-            <img src="{{ asset('images/commandez.jpg') }}" alt="commande" class="img-fluid mx-auto d-block" id="commandez">
-        </div>
-        <div class="main-content">
-            <div class="text">
-                <p>Plongez dans un monde d'exotisme <br> avec nos plateaux de fruits exotiques frais : <br>
-                Une symphonie de saveurs tropicales <br> pour éveiller vos papilles !</p>
-                <p>Des fruits frais et savoureux <br> à chaque bouchée </p>
-            </div>
-            <div>
-                <img src="{{ asset('images/assiettedefruitsfrais-removebg-preview.png') }}" alt="Image carré" class="img-fluid">
-            </div>
-        </div>
-    </article>
-
-    <div class="square-container2">
-        <img src="{{ asset('images/assiettedefruitsfrais-removebg-preview.png') }}" alt="Image carré" id="plateau1" class="img-fluid mx-auto d-block">
-        <div>
-            <ul class="liste">
-                <li>Pêches</li>
-                <li>Oranges</li>
-                <li>Kiwi</li>
-                <li>Raisins</li>
-                <li>Fraises</li>
-                <li>Prunes</li>
-                <li>Framboises</li>
-                <li>Figues</li>
-            </ul>
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-between">
+            <img src="{{ asset('images/mon-logo.png') }}" alt="logo" id="logo-img">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav"  style="margin-left: 100px;">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item" style="margin-right: 60px;">
+                            <a class="nav-link border border-success rounded-pill text-success d-flex justify-content-center align-items-center font-weight-bold p-2" href="#" style="width: 120px; height: 30px;">Accueil</a>
+                        </li>
+                        <li class="nav-item" style="margin-right: 60px;">
+                            <a class="nav-link border border-success rounded-pill text-success d-flex justify-content-center align-items-center font-weight-bold p-2" href="#plateaux" style="width: 120px; height: 30px;">Boutique</a>
+                        </li>
+                        <li class="nav-item" style="margin-right: 60px;">
+                            <a class="nav-link border border-success rounded-pill text-success d-flex justify-content-center align-items-center font-weight-bold p-2" href="#blog" style="width: 120px; height: 30px;">Blog</a>
+                        </li>
+                        <li class="nav-item" style="margin-right: 60px;">
+                            <a class="nav-link border border-success rounded-pill text-success d-flex justify-content-center align-items-center font-weight-bold p-2" href="#a-propos" style="width: 120px; height: 30px;">A propos</a>
+                        </li>
+                        <li class="nav-item" style="margin-right: 60px;">
+                            <a class="nav-link border border-success rounded-pill text-success d-flex justify-content-center align-items-center font-weight-bold p-2" href="#contact" style="width: 120px; height: 30px;">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
     </div>
+</header>
 
+
+<div>
+<article>
+    <div>
+        <img src="{{ asset('images/commandez.jpg') }}" alt="commande" class="img-fluid mx-auto d-block animate__animated animate__zoomIn" id="commandez">
+    </div>
+    <div class="main-content">
+        <div class="text">
+            <p class="animate__animated animate__fadeInUp">Plongez dans un monde d'exotisme <br> avec nos plateaux de fruits exotiques frais : <br>
+            Une symphonie de saveurs tropicales <br> pour éveiller vos papilles !</p>
+            <p class="animate__animated animate__fadeInUp animate__delay-1s">Des fruits frais et savoureux <br> à chaque bouchée </p>
+        </div>
+        <div>
+            <img src="{{ asset('images/assiettedefruitsfrais-removebg-preview.png') }}" alt="Image carré" class="img-fluid animate__animated animate__lightSpeedInRight">
+        </div>
+    </div>
+</article>
+
+<div class="square-container2">
+    <img src="{{ asset('images/assiettedefruitsfrais-removebg-preview.png') }}" alt="Image carré" id="plateau1" class="img-fluid mx-auto d-block animate__animated animate__rotateIn">
+    <div>
+        <ul class="liste">
+            <li class="animate-repeated">Pêches</li>
+            <li class="animate-repeated">Oranges</li>
+            <li class="animate-repeated">Kiwi</li>
+            <li class="animate-repeated">Raisins</li>
+            <li class="animate-repeated">Fraises</li>
+            <li class="animate-repeated">Prunes</li>
+            <li class="animate-repeated">Framboises</li>
+            <li class="animate-repeated">Figues</li>
+        </ul>
+    </div>
+</div>
 
     <div class="plateaux" id="plateaux">
         <div class="image-prix image-prix1">
@@ -151,21 +162,40 @@
         }
 
         // Fonction pour remonter en haut de la page
-function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
-// Afficher ou masquer le bouton en fonction du scroll
-window.addEventListener('scroll', function() {
-    var scrollTopBtn = document.getElementById('scrollTopBtn');
-    if (window.scrollY > 200) {
-        scrollTopBtn.style.display = 'block';
-    } else {
-        scrollTopBtn.style.display = 'none';
-    }
-});
-
-
+        // Afficher ou masquer le bouton en fonction du scroll
+        window.addEventListener('scroll', function() {
+            var scrollTopBtn = document.getElementById('scrollTopBtn');
+            if (window.scrollY > 200) {
+                scrollTopBtn.style.display = 'block';
+            } else {
+                scrollTopBtn.style.display = 'none';
+            }
+        });
+        
+        $(document).ready(function() {
+            // Animation au survol pour les éléments de navigation
+            $('.nav-link').hover(
+                function() {
+                    $(this).addClass('animate__animated animate__heartBeat');
+                },
+                function() {
+                    $(this).removeClass('animate__animated animate__heartBeat');
+                }
+            );
+             // Animation au survol pour les éléments de navigation
+            $('.nav-link').hover(
+                function() {
+                    $(this).addClass('animate__animated animate__shakeX');
+                },
+                function() {
+                    $(this).removeClass('animate__animated animate__shakeX');
+                }
+            );
+        });
     </script>
 
 <div class="container-main">
@@ -196,18 +226,17 @@ window.addEventListener('scroll', function() {
     </div>
 </div>
 
-
 <section id="a-propos">
         <div id="p1" class="grid-item">
             <h1>À propos de Matachou</h1>
         </div>
-        <div id="p2" class="grid-item-vert">
+        <div id="p2" class="grid-item-vert animate">
             <h2 class='h2'>Notre Histoire</h2>
             <p>Matachou a commencé son aventure avec une passion pour les fruits frais et de qualité. Ce qui a
             commencé comme un petit stand de marché est rapidement devenu une entreprise florissante, grâce à
             notre engagement envers la fraîcheur, la qualité et le service client exceptionnel.</p>
         </div>
-        <div id="p3" class="grid-item-vert">
+        <div id="p3" class="grid-item-vert animate">
             <h2 class='h2'>Notre Mission</h2>
             <p>Chez Matachou, notre mission est simple : offrir à nos clients les meilleurs fruits possibles.
                 Nous sélectionnons soigneusement nos produits auprès de producteurs locaux et internationaux,
@@ -215,14 +244,14 @@ window.addEventListener('scroll', function() {
                 qualité irréprochable.
             </p>
         </div>
-        <div id="p4" class="grid-item-vert">
+        <div id="p4" class="grid-item-vert animate">
             <h2 class='h2'>Nos Produits</h2>
             <p>Nous proposons une vaste gamme de fruits frais, incluant des variétés locales et exotiques.
                 En plus des fruits individuels, nous créons également des plateaux de fruits artistiquement arrangés,
                 parfaits pour des événements spéciaux, des cadeaux ou simplement pour se faire plaisir.
             </p>
         </div>
-        <div id="p5" class="grid-item-vert">
+        <div id="p5" class="grid-item-vert animate">
             <h2 class='h2'>Nos Valeurs</h2>
             <p>Qualité : Nous ne faisons aucun compromis sur la qualité. Chaque fruit est sélectionné avec soin pour
                 garantir une saveur et une fraîcheur optimales.
@@ -231,7 +260,7 @@ window.addEventListener('scroll', function() {
                 Engagement Local : Nous soutenons les producteurs locaux et nous engageons à promouvoir des pratiques
                 agricoles durables.</p>
         </div>
-        <div id="p6" class="grid-item">
+        <div id="p6" class="grid-item animate">
             <h2>Pourquoi Nous Choisir ?</h2>
             <p>En choisissant Matachou, vous faites le choix de la qualité et de l'engagement envers des produits
                 frais et délicieux. Que vous soyez un amateur de fruits ou que vous cherchiez à ajouter une touche
@@ -244,7 +273,7 @@ window.addEventListener('scroll', function() {
             <h2>Contactez-Nous</h2>
             <p>Pour toute question ou commande spéciale, n'hésitez pas à nous contacter. Nous sommes impatients de vous servir et de vous offrir les meilleurs fruits disponibles.</p>
         </div>
-        <div class="contact-info">
+        <div class="contact-info animate">
             <p>
                 <i class="fab fa-instagram"></i>
                 <a href="https://www.instagram.com/matachougueye?igsh=ZHFidTV3eG8xeTll">Instagram: @matachougueye</a>

@@ -8,57 +8,24 @@ body {
 }
 
 header {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: center; /* Centre verticalement les éléments */
     padding: 10px 50px;
+    margin-right: 40px;
+}
+
+nav {
+    margin-right: 80px;
 }
 
 #logo-img {
     max-width: 60px;
     height: auto;
-    margin-right: 40px;
-}
-
-.nav-item {
-    width: 120px;
-    height: 30px;
-    background-color: white;
-    border: 2px solid #549637;
-    border-radius: 80px;
-    margin-right: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-}
-
-.navbar-nav {
-    display: flex;
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-    flex: 1;
-    justify-content: center;
-}
-
-.nav-link {
-    font-weight: bold;
-    text-decoration: none;
-    color: #549637;
-}
-
-.nav-link:hover {
-    text-decoration: underline;
-}
-
-.navbar-collapse {
-    padding-top: 5px;
+    margin-left: 40px;
 }
 
 #commandez {
     padding-top: 40px;
     width: 1150px;
+    margin-right: 40px;
 }
 
 /* Conteneur principal */
@@ -554,7 +521,69 @@ footer {
         gap: 10px 0; /* Espacement entre les lignes seulement */
     }
 
+}
 
+@keyframes fadeInUpRepeated {
+    0% { opacity: 0; transform: translateY(20px); }
+    25% { opacity: 1; transform: translateY(0); }
+    75% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-20px); }
+}
+.animate-repeated {
+    animation: fadeInUpRepeated 10s linear infinite;
+}
+.animate-repeated:nth-child(2) { animation-delay: 1s; }
+.animate-repeated:nth-child(3) { animation-delay: 2s; }
+.animate-repeated:nth-child(4) { animation-delay: 3s; }
+.animate-repeated:nth-child(5) { animation-delay: 4s; }
+.animate-repeated:nth-child(6) { animation-delay: 5s; }
+.animate-repeated:nth-child(7) { animation-delay: 6s; }
+.animate-repeated:nth-child(8) { animation-delay: 7s; }
+
+/* Animation pour la section "À propos de Matachou" */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Changement de couleur de fond au survol */
+.grid-item-vert:hover {
+    background-color: green; /* Changez la couleur au survol selon votre préférence */
+    transition: background-color 0.3s ease;
+}
+.grid-item:hover {
+    background-color: rgb(195, 195, 195); /* Changez la couleur au survol selon votre préférence */
+    transition: background-color 0.3s ease;
+}
+
+/* Animation pour zoomer les éléments successivement */
+@keyframes zoomIn {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.contact-info p:nth-child(1) {
+    animation: zoomIn 2s ease infinite;
+    animation-delay: 0s; /* Pas de délai pour le premier élément */
+}
+
+.contact-info p:nth-child(2) {
+    animation: zoomIn 2s ease infinite;
+    animation-delay: 2s; /* Délai pour le deuxième élément */
+}
+
+.contact-info p:nth-child(3) {
+    animation: zoomIn 2s ease infinite;
+    animation-delay: 4s; /* Délai pour le troisième élément */
+}
+
+.contact-info p:nth-child(4) {
+    animation: zoomIn 2s ease infinite;
+    animation-delay: 6s; /* Délai pour le quatrième élément */
 }
 
 @media (min-width: 992px) {

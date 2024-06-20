@@ -26,7 +26,7 @@
                     <div>
                         Dépenses effectuées en {{ \Carbon\Carbon::parse(session('mois_recherche'))->formatLocalized('%B %Y') }}
                         <br>
-                        <!-- Total des prix : {{ session('total_prix_mois') }} CFA -->
+                         Total des prix : {{ session('total_prix_mois') }} CFA 
                     </div>
                     <form action="{{ route('depenses.annulerRecherche') }}" method="POST" style="display:inline-block;">
                         @csrf
@@ -90,7 +90,7 @@
                         </tr>
                     @endforeach
                 </tbody>
-                
+      
             </table>
         </div>
     </div>

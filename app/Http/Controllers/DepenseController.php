@@ -143,7 +143,7 @@ class DepenseController extends Controller
     public function annulerRecherche()
     {
         // Supprimer la date de recherche et le total des prix de la session
-        session()->forget(['date_recherche', 'total_prix_recherche']);
+        session()->forget(['date_recherche', 'total_prix_recherche', 'mois_recherche', 'total_prix_mois']);
 
         // Rediriger vers la page d'index des dépenses
         return redirect()->route('depenses.index')->with('success', 'Recherche annulée avec succès.');
@@ -151,6 +151,7 @@ class DepenseController extends Controller
 
     public function searchByMonth(Request $request)
     {
+        session()->forget(['date_recherche', 'total_prix_recherche']);
         $request->validate([
             'search_month' => 'required|date_format:Y-m',
         ]);

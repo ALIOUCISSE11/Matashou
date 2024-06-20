@@ -3,14 +3,66 @@
 @section('content')
 <div class="container mt-5">
     <h1 class="text-center mb-4">Liste des Commandes</h1>
-    <div class="mb-3">
-        <a href="{{ route('commandes.create') }}" class="btn btn-primary">Add Command</a>
+
+    @if(session('date_recherche'))
+        <div class="alert alert-info d-flex justify-content-between align-items-center">
+            <div>
+                Commandes effectuées le {{ \Carbon\Carbon::parse(session('date_recherche'))->format('d/m/Y') }}
+                <br>
+                Total des prix : {{ session('total_prix_recherche') }} CFA
+            </div>
+            <form action="{{ route('commandes.annulerRecherche') }}" method="POST" style="display:inline-block;">
+                @csrf
+                <button type="submit" class="btn btn-danger">Annuler la recherche</button>
+            </form>
+        </div>
+    @elseif(session('mois_recherche'))
+        <div class="alert alert-info d-flex justify-content-between align-items-center">
+            <div>
+                Commandes effectuées en {{ \Carbon\Carbon::parse(session('mois_recherche'))->formatLocalized('%B %Y') }}
+                <br>
+                Total des prix : {{ session('total_prix_mois') }} CFA
+            </div>
+            <form action="{{ route('commandes.annulerRecherche') }}" method="POST" style="display:inline-block;">
+                @csrf
+                <button type="submit" class="btn btn-danger">Annuler la recherche</button>
+            </form>
+        </div>
+    @endif
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <form action="{{ route('commandes.recherche') }}" method="POST" class="mb-3">
+                @csrf
+                <div class="form-group">
+                    <label for="date_saisie">Rechercher par date :</label>
+                    <input type="date" name="date_saisie" id="date_saisie" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">Rechercher</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <form action="{{ route('commandes.rechercheMois') }}" method="POST" class="mb-3">
+                @csrf
+                <div class="form-group">
+                    <label for="search_month">Rechercher par mois :</label>
+                    <input type="month" name="search_month" id="search_month" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">Rechercher</button>
+            </form>
+        </div>
     </div>
+
+    <div class="mb-3">
+        <a href="{{ route('commandes.create') }}" class="btn btn-primary">Ajouter Commande</a>
+    </div>
+
     @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
     @endif
+
     <table class="table table-striped table-bordered">
         <thead class="table-dark">
             <tr>
@@ -47,12 +99,12 @@
                         </form>
                     </td>
                     <td>
-                        <a href="{{ route('commandes.show', $commande->id) }}" class="btn btn-info">View</a>
-                        <a href="{{ route('commandes.edit', $commande->id) }}" class="btn btn-warning">Edit</a>
+                        <a href="{{ route('commandes.show', $commande->id) }}" class="btn btn-info">Voir</a>
+                        <a href="{{ route('commandes.edit', $commande->id) }}" class="btn btn-warning">Modifier</a>
                         <form action="{{ route('commandes.destroy', $commande->id) }}" method="POST" style="display:inline-block;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger">Supprimer</button>
                         </form>
                     </td>
                 </tr>
