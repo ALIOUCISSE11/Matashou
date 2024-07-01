@@ -1,4 +1,15 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="mb-4 text-center" style="background-color: #00ff5573"><strong>Articles</strong></h1>
+            <div class="d-flex justify-content-center mb-3">
+                <a href="{{ route('articles.create') }}" class="btn btn-primary mb-3 btn-center">Create New Article</a>
+                <a href="{{ route('categories.index') }}" class="btn btn-secondary mb-3 mx-2">Create New Category</a>
             </div>
+           </div>
             @if(session('success'))
                 <div class="alert alert-success">
                     {{ session('success') }}

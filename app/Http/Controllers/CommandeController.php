@@ -17,9 +17,9 @@ class CommandeController extends Controller
 
     public function create()
     {
-    $clients = Client::all();
-    $articles = Article::all();
-    return view('commandes.create', compact('clients', 'articles'));
+        $clients = Client::orderBy('nom')->get();
+        $articles = Article::orderBy('title')->get();
+        return view('commandes.create', compact('clients', 'articles'));
     }
 
     public function store(Request $request)
@@ -58,8 +58,8 @@ class CommandeController extends Controller
 
     public function edit(Commande $commande)
     {
-        $clients = Client::all();
-        $articles = Article::all();
+        $clients = Client::orderBy('nom')->get();
+        $articles = Article::orderBy('title')->get();
         return view('commandes.edit', compact('commande', 'clients', 'articles'));
     }
 
@@ -94,17 +94,16 @@ class CommandeController extends Controller
     }
 
     public function updateStatus(Request $request, Commande $commande)
-{
-    $request->validate([
-        'etat' => 'required|in:en attente,en cours,livré',
-    ]);
+    {
+        $request->validate([
+            'etat' => 'required|in:en attente,en cours,livré',
+        ]);
 
-    $commande->etat = $request->etat;
-    $commande->save();
+        $commande->etat = $request->etat;
+        $commande->save();
 
-    return redirect()->route('commandes.index')->with('success', 'État de la commande mis à jour avec succès.');
-}
-
+        return redirect()->route('commandes.index')->with('success', 'État de la commande mis à jour avec succès.');
+    }
 
     public function destroy(Commande $commande)
     {
@@ -112,3 +111,4 @@ class CommandeController extends Controller
         return redirect()->route('commandes.index')->with('success', 'Commande supprimée avec succès.');
     }
 }
+

@@ -21,16 +21,15 @@
     <div class="min-h-screen bg-gray-100">
         @include('layouts.navigation')
 
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
+        @if (isset($header))
+            <header class="bg-white shadow">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    {{ $header }}
+                </div>
+            </header>
+        @endif
 
         <!-- Page Content -->
-        @stack('scripts')
         <div class="container-fluid">
             <div class="row">
                 <!-- Sidebar -->
@@ -39,7 +38,7 @@
                     <div class="position-sticky">
                         <ul class="nav flex-column text-white">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="{{ route('dashboard') }}">
+                                <a class="nav-link" href="{{ route('dashboard') }}">
                                     Admin
                                 </a>
                             </li>
@@ -54,23 +53,22 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="{{ route('clients.index') }}">
+                                <a class="nav-link" href="{{ route('clients.index') }}">
                                     Clients
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="{{ route('commandes.index') }}">
+                                <a class="nav-link" href="{{ route('commandes.index') }}">
                                     Commandes
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="{{ route('livreurs.index') }}">
+                                <a class="nav-link" href="{{ route('livreurs.index') }}">
                                     Livreurs
                                 </a>
                             </li>
-                            <!-- Dépenses Navigation -->
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="{{ route('depenses.index') }}">
+                                <a class="nav-link" href="{{ route('depenses.index') }}">
                                     Dépenses
                                 </a>
                             </li>
@@ -81,16 +79,19 @@
 
                 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                     @yield('content')
-
-                    <!-- Scripts spécifiques à la page -->
-                    @yield('scripts')
                 </main>
             </div>
         </div>
-  </div>
-        <!-- Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    </body>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Additional Scripts -->
+    @stack('scripts')
+    @yield('scripts')
+</body>
 </html>

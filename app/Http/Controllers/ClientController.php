@@ -25,10 +25,17 @@ class ClientController extends Controller
             'phone' => 'required',
             'adresse' => 'required',
         ]);
-
-        Client::create($request->all());
-        return redirect()->route('clients.index')->with('success', 'Client created successfully.');
+    
+        $client = Client::create([
+            'nom' => $request->nom,
+            'phone' => $request->phone,
+            'adresse' => $request->adresse,
+        ]);
+    
+        // Retourne le client créé
+        return response()->json($client);
     }
+    
 
     public function show(Client $client)
     {
@@ -57,4 +64,16 @@ class ClientController extends Controller
         $client->delete();
         return redirect()->route('clients.index')->with('success', 'Client deleted successfully.');
     }
+
+    public function search(Request $request)
+{
+    $search = $request->input('search');
+    
+    $clients = Client::where('nom', 'like', '%' . $search . '%')
+                     ->orWhere('phone', 'like', '%' . $search . '%')
+                     ->take(5)  // Limite le nombre de résultats
+                     ->get();
+    
+    return response()->json($clients);
+}
 }

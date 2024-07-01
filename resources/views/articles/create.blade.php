@@ -40,11 +40,7 @@
                         <button type="submit" class="btn btn-success">Créer</button>
                         <a href="{{ route('articles.index') }}" class="btn btn-secondary">Retour</a>
                     </div>
-                </form>
-            @else
-                <div class="alert alert-danger text-center">
-                    Vous n'avez pas la permission de créer un article.
-                </div>
+         
          
         </div>
     </div>
