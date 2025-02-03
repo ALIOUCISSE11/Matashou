@@ -46,5 +46,6 @@ class Commande extends Model
     public function livreurs()
     {
         return $this->belongsTo(Livreur::class);
+        
     }
 }

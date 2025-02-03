@@ -73,7 +73,7 @@
 <script>
 $(document).ready(function () {
     let typingTimer;
-    const doneTypingInterval = 500; // Délai en ms après la fin de la saisie
+    const doneTypingInterval = 300; // Délai en ms après la fin de la saisie
 
     $('#client_search').on('input', function () {
         clearTimeout(typingTimer);
@@ -98,7 +98,7 @@ $(document).ready(function () {
         }
     });
 
-    function searchClient(query, showCreatePrompt = false) {
+    function searchClient(query) {
         $.ajax({
             url: '{{ route("clients.search") }}',
             method: 'GET',
@@ -136,6 +136,7 @@ $(document).ready(function () {
 
     $('#client_search_results').on('click', '.client-item', function () {
         let clientId = $(this).data('client-id');
+        let clientName = $(this).text().split(' - ')[0]; // Extrait le nom du client
         $('#client_id').val(clientId);
         $('#client_search').val($(this).text());
         $('#client_search_results').empty();

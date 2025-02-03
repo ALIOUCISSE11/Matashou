@@ -64,16 +64,13 @@ class ClientController extends Controller
         $client->delete();
         return redirect()->route('clients.index')->with('success', 'Client deleted successfully.');
     }
-
     public function search(Request $request)
-{
-    $search = $request->input('search');
-    
-    $clients = Client::where('nom', 'like', '%' . $search . '%')
-                     ->orWhere('phone', 'like', '%' . $search . '%')
-                     ->take(5)  // Limite le nombre de résultats
-                     ->get();
-    
-    return response()->json($clients);
-}
+    {
+        $search = $request->get('search');
+        $clients = Client::where('nom', 'LIKE', "%{$search}%")
+                         ->orWhere('phone', 'LIKE', "%{$search}%")
+                         ->get();
+        return response()->json($clients);
+    }
+  
 }
